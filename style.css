@@ -37,3 +37,15 @@ p {
 .lose {
   background: red;
 }
+
+.mouseCircle {
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgb(255, 0, 0);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50px;
+  z-index: -1;
+}
