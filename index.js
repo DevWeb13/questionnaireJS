@@ -52,3 +52,23 @@ mouseCircle.addEventListener("mouseup", () => {
   mouseCircle.classList.remove("bigger");
   mouseCircle.classList.add("smaller");
 });
+
+//L'opacité de .questionContainer diminue lorsque la souris entre
+questionContainer.addEventListener("mouseenter", () => {
+  questionContainer.style.background = "rgba(0, 0, 0, 0.5)";
+});
+
+//L'opacité de .questionContainer réaugmente lorsque la souris sort
+questionContainer.addEventListener("mouseout", () => {
+  questionContainer.style.background = "rgba(0, 0, 0, 1)";
+});
+
+//La taille de la réponse augmente lors du survol
+response.addEventListener("mouseover", () => {
+  response.style.transform = "scale(1.2)";
+});
+
+//La taille de la réponse diminue lors de la sortie de la souris
+response.addEventListener("mouseout", () => {
+  response.style.transform = "scale(1)";
+});
