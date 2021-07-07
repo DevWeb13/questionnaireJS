@@ -47,5 +47,13 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50px;
-  z-index: -1;
+}
+
+.bigger {
+  transform: scale(2) translate(-25%, -25%);
+  transition: 1s ease;
+}
+
+.smaller {
+  transition: 1s ease;
 }

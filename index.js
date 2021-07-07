@@ -31,11 +31,24 @@ btn2.addEventListener("click", (event) => {
 
 //Déplacement du rond avec la souris, le rond ne peut pas pénetrer le questionContainer
 window.addEventListener("mousemove", (e) => {
-  if (e.pageY < 140) {
-    mouseCircle.style.top = "140px";
+  if (e.pageY < 165) {
+    mouseCircle.style.top = "165px";
     mouseCircle.style.left = e.pageX + "px";
   } else {
     mouseCircle.style.left = e.pageX + "px";
     mouseCircle.style.top = e.pageY + "px";
+    //enleve la classe .smaller pour eviter que l 'effet de transition ne continue.
+    mouseCircle.classList.remove("smaller");
   }
+});
+
+//Le rond grossit lorsque la souris est enfoncée
+mouseCircle.addEventListener("mousedown", () => {
+  mouseCircle.classList.add("bigger");
+});
+
+//Le rond revient a sa taille normal lorsque la souris n 'est plus enfoncée
+mouseCircle.addEventListener("mouseup", () => {
+  mouseCircle.classList.remove("bigger");
+  mouseCircle.classList.add("smaller");
 });
