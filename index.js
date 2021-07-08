@@ -4,6 +4,8 @@ const btn1 = document.getElementById("btn-1");
 const btn2 = document.getElementById("btn-2");
 const response = questionContainer.querySelector("p");
 const mouseCircle = document.querySelector(".mouseCircle");
+const keypressContainer = document.querySelector(".keypressContainer");
+const key = document.getElementById("key");
 
 //Lors du clic sur le container on enleve la réponse si elle est affichée
 questionContainer.addEventListener("click", () => {
@@ -71,4 +73,29 @@ response.addEventListener("mouseover", () => {
 //La taille de la réponse diminue lors de la sortie de la souris
 response.addEventListener("mouseout", () => {
   response.style.transform = "scale(1)";
+});
+
+//fonction ajouter un son
+const stageClear = () => {
+  const audio = new Audio();
+  audio.src = "./smb_stage_clear.wav";
+  audio.play();
+};
+
+//La touche appuyée en dernier s' affiche à l'écran
+document.addEventListener("keypress", (e) => {
+  //Changement de background selon la touche enfoncée
+  //Multiples conditions raccourci: Si la touche enfoncée est une voyelle ou consonne on le précise
+  if (["a", "e", "i", "o", "u"].includes(e.key)) {
+    keypressContainer.style.background = "green";
+    key.textContent = e.key + " (voyelle)";
+  } else if (e.key === "Enter") {
+    keypressContainer.style.background = "black";
+    key.textContent = e.key;
+    //Ajout du son
+    stageClear();
+  } else {
+    keypressContainer.style.background = "blue";
+    key.textContent = e.key + " (consonne)";
+  }
 });
