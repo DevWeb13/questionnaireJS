@@ -57,3 +57,19 @@ p {
 .smaller {
   transition: 1s ease;
 }
+
+nav {
+  width: 100%;
+  height: 50px;
+  background: pink;
+  position: fixed;
+  top: -50px;
+  transition: 0.5s ease;
+}
+
+ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+}
