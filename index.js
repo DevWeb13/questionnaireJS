@@ -99,3 +99,16 @@ document.addEventListener("keypress", (e) => {
     key.textContent = e.key + " (consonne)";
   }
 });
+
+//---------------------------------------------------------------------
+// Scroll event
+const nav = document.querySelector("nav");
+
+//Quand le scrollY > 100px la nav s'affiche
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 100) {
+    nav.style.top = 0;
+  } else {
+    nav.style.top = "-50px";
+  }
+});
