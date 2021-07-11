@@ -33,24 +33,20 @@ btn2.addEventListener("click", (event) => {
 
 //Déplacement du rond avec la souris, le rond ne peut pas pénetrer le questionContainer
 window.addEventListener("mousemove", (e) => {
-  if (e.pageY < 165) {
-    mouseCircle.style.top = "165px";
-    mouseCircle.style.left = e.pageX + "px";
-  } else {
-    mouseCircle.style.left = e.pageX + "px";
-    mouseCircle.style.top = e.pageY + "px";
-    //enleve la classe .smaller pour eviter que l 'effet de transition ne continue.
-    mouseCircle.classList.remove("smaller");
-  }
+  mouseCircle.style.left = e.pageX + "px";
+  mouseCircle.style.top = e.pageY + "px";
+  //enleve la classe .smaller pour eviter que l 'effet de transition ne continue.
+  mouseCircle.classList.remove("smaller");
+  mouseCircle.classList.remove("bigger");
 });
 
 //Le rond grossit lorsque la souris est enfoncée
-mouseCircle.addEventListener("mousedown", () => {
+document.addEventListener("mousedown", () => {
   mouseCircle.classList.add("bigger");
 });
 
 //Le rond revient a sa taille normal lorsque la souris n 'est plus enfoncée
-mouseCircle.addEventListener("mouseup", () => {
+document.addEventListener("mouseup", () => {
   mouseCircle.classList.remove("bigger");
   mouseCircle.classList.add("smaller");
 });
@@ -111,4 +107,50 @@ window.addEventListener("scroll", () => {
   } else {
     nav.style.top = "-50px";
   }
+});
+
+//----------------------FORM-------------
+const inputName = document.querySelector('input[type="text"]');
+const select = document.querySelector("select");
+const form = document.querySelector("form");
+
+let pseudo = "";
+let language = "";
+
+inputName.addEventListener("input", (e) => {
+  pseudo = e.target.value;
+});
+
+select.addEventListener("input", (e) => {
+  language = e.target.value;
+});
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  if (cgv.checked) {
+    document.querySelector("form > div").innerHTML = `
+      <h3>Pseudo : ${pseudo}</h3>
+      <h4>Language préféré : ${language}</h4>
+    `;
+  } else {
+    alert("Veuillez accepter les CGV");
+  }
+});
+
+//----------------Load event-------------
+window.addEventListener("load", () => {
+  console.log("Document chargé !");
+});
+
+//----------- Selectionner plusieurs 'boites' -----
+//querySelectorsAll();
+//forEach;
+const boxes = document.querySelectorAll(".box");
+boxes.forEach((box) => {
+  box.addEventListener("click", (e) => {
+    // e.stopPropagation();
+    // e.preventDefault();
+    e.target.style.background = "red";
+  });
 });

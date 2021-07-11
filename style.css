@@ -8,6 +8,7 @@ body {
   margin: 0;
   color: white;
   min-height: 200vh;
+  overflow-x: hidden;
 }
 .box {
   border: 6px solid white;
@@ -47,6 +48,7 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50px;
+  z-index: -1;
 }
 
 .bigger {
