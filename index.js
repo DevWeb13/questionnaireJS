@@ -1,3 +1,4 @@
+// @ts-nocheck
 //Déclaration des constantes
 const questionContainer = document.querySelector(".click-event");
 const btn1 = document.getElementById("btn-1");
